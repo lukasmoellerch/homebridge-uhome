@@ -1,16 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  Service,
-  PlatformAccessory,
-  CharacteristicValue,
-  CharacteristicSetCallback,
   CharacteristicGetCallback,
-  CharacteristicChange,
+  CharacteristicSetCallback,
+  CharacteristicValue,
   Nullable,
+  PlatformAccessory,
+  Service,
 } from "homebridge";
-import { Characteristic } from "hap-nodejs";
 import { Thermostat } from "./controller";
-
 import { ExampleHomebridgePlatform } from "./platform";
 
 /**
@@ -81,7 +78,7 @@ export class ExamplePlatformAccessory {
   handleCurrentHeatingCoolingStateGet(callback) {
     this.platform.log.debug("Triggered GET CurrentHeatingCoolingState");
     // set this to a valid value for TargetHeatingCoolingState
-    const currentValue = Characteristic.TargetHeatingCoolingState.HEAT;
+    const currentValue = 1;
 
     callback(null, currentValue);
   }
@@ -96,7 +93,7 @@ export class ExamplePlatformAccessory {
     );
 
     // set this to a valid value for TargetHeatingCoolingState
-    const currentValue = Characteristic.TargetHeatingCoolingState.HEAT;
+    const currentValue = 1;
 
     callback(null, currentValue);
   }
@@ -111,7 +108,7 @@ export class ExamplePlatformAccessory {
     _connectionID?: string | undefined
   ) {
     this.platform.log.debug("Triggered SET TargetHeatingCoolingState:", value);
-    cb(new Error("no."), Characteristic.TargetHeatingCoolingState.HEAT);
+    cb(new Error("no."), 1);
   }
 
   /**
@@ -157,7 +154,7 @@ export class ExamplePlatformAccessory {
     this.platform.log.debug("Triggered GET TemperatureDisplayUnits");
 
     // set this to a valid value for TemperatureDisplayUnits
-    const currentValue = Characteristic.TemperatureDisplayUnits.CELSIUS;
+    const currentValue = 0;
 
     callback(null, currentValue);
   }
@@ -165,7 +162,12 @@ export class ExamplePlatformAccessory {
   /**
    * Handle requests to set the "Temperature Display Units" characteristic
    */
-  handleTemperatureDisplayUnitsSet(_change: CharacteristicChange) {
+  handleTemperatureDisplayUnitsSet(
+    _value: CharacteristicValue,
+    _cb: CharacteristicSetCallback,
+    _context?: unknown,
+    _connectionID?: string | undefined
+  ) {
     return;
   }
 }

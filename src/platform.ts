@@ -30,6 +30,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
     public readonly api: API
   ) {
     this.log.debug("Finished initializing platform:", this.config.name);
+    this.log.info("UHome Host: " + config["uhome-host"]);
 
     this.api.on("didFinishLaunching", () => {
       log.debug("Executed didFinishLaunching callback");

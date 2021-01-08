@@ -1,8 +1,7 @@
 {
-  "private": true,
   "displayName": "Hombridge UHome",
   "name": "homebridge-uhome",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A uhome plugin for homebridge (WIP)",
   "license": "MIT",
   "repository": {

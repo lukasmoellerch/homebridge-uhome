@@ -144,7 +144,7 @@ export class UHome {
           ],
         });
         const value = request.result.objects[0].properties[85].value;
-        if (`${value}` != "0.00") {
+        if (`${value}` !== "0.00") {
           const controller = new Controller(this, i);
           this.controllers.push(controller);
         }

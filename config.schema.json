@@ -9,7 +9,12 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "UHome"
+      },
+      "uhome-host": {
+        "title": "UHome Host",
+        "type": "string",
+        "required": true
       }
     }
   }
